@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Accesso Riservato</title>
+<style>
+body {
+    background-color: #111;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 40px;
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+}
+
+button {
+    padding: 12px 20px;
+    margin: 10px;
+    border: none;
+    background-color: #ffffff;
+    color: #000;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 6px;
+}
+
+button:hover {
+    background-color: #ddd;
+}
+.hidden {
+    display: none;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2 id="title">Per BRASCHIO</h2>
+    <p id="text">Caro Braschio stai per accedere a qualcosa di importante...</p>
+    <button onclick="start()">Inizia</button>
+
+    <div id="quiz" class="hidden">
+        <p>Da quanti anni conosci Matteo?</p>
+        <button onclick="next()">Più di quanto vorrei ammettere</button>
+        <button onclick="next()">Abbastanza per sopportarlo</button>
+    </div>
+
+    <div id="quiz-1" class="hidden">
+        <p>Quanto sei preoccupato per lui?</p>
+        <button onclick="next1()">Tanto</button>
+        <button onclick="next1()">Parecchio</button>
+    </div>
+
+    <div id="quiz-2" class="hidden">
+        <p>Sei consapevole che da oggi, più che mai, avrà biogno di te?</p>
+        <button onclick="next2()">Si</button>
+        <button onclick="next2()">Certo che si</button>
+    </div>
+
+    <div id="quiz-3" class="hidden">
+        <p>Pensi di poterti accollare questa pratica?</p>
+        <button onclick="next3()">Assolutemente</button>
+        <button onclick="next3()">Ovviamente</button>
+    </div>
+
+    <div id="quiz-4" class="hidden">
+        <p>Perfetto! Anche perchè devi sapere che c'è una missione in serbo per te...</p>
+        <button onclick="next4()">click me</button>
+    </div>
+
+    <!-- Schermata 1 -->
+    <div id="mission" class="hidden">
+        <h1>Una missione speciale</h1>
+        <button onclick="showReveal()">Continue</button>
+    </div>
+
+    <!-- Schermata 2 -->
+    <div id="reveal" class="hidden">
+        <h1 style="font-size: 32px;">DEVI essere il suo<br>Testimone di Nozze</h1>
+        <p style="margin-top:20px;">Che dici?</p>
+        <button onclick="accept()">ACCETTO</button>
+        <button onclick="accept()">CERTO CHE ACCETTO</button>
+    </div>
+
+    <!-- Schermata finale -->
+    <div id="celebration" class="hidden">
+        <h1 style="font-size: 48px; margin-bottom: 20px;">
+            MOLTO BENE
+        </h1>
+
+        <p style="font-size: 24px; margin-bottom: 30px;">
+            6 Settembre 2026
+        </p>
+
+        <h2 style="font-size: 64px; margin-bottom: 15px;">
+            SONO CAZZI TUOI
+        </h2>
+
+        <p style="font-size: 18px; opacity: 0.7;">
+            ...o forse suoi!
+        </p>
+    </div>
+</div>
+
+<script>
+function start() {
+    document.getElementById("title").style.display = "none";
+    document.getElementById("text").style.display = "none";
+    document.querySelector("button").style.display = "none";
+    document.getElementById("quiz").classList.remove("hidden");
+}
+
+function next() {
+    document.getElementById("quiz").classList.add("hidden");
+    document.getElementById("quiz-1").classList.remove("hidden");
+}
+
+function next1() {
+    document.getElementById("quiz-1").classList.add("hidden");
+    document.getElementById("quiz-2").classList.remove("hidden");
+}
+
+function next2() {
+    document.getElementById("quiz-2").classList.add("hidden");
+    document.getElementById("quiz-3").classList.remove("hidden");
+}
+
+function next3() {
+    document.getElementById("quiz-3").classList.add("hidden");
+    document.getElementById("quiz-4").classList.remove("hidden");
+}
+
+function next4() {
+    document.getElementById("quiz-4").classList.add("hidden");
+    document.getElementById("mission").classList.remove("hidden");
+}
+
+function accept() {
+    document.getElementById("final").classList.add("hidden");
+    document.getElementById("accepted").classList.remove("hidden");
+}
+
+function showReveal() {
+    document.getElementById("mission").classList.add("hidden");
+    document.getElementById("reveal").classList.remove("hidden");
+}
+
+function accept() {
+    document.getElementById("reveal").classList.add("hidden");
+    document.getElementById("celebration").classList.remove("hidden");
+}
+</script>
+
+</body>
+</html>
